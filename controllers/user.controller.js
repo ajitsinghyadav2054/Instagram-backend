@@ -21,9 +21,9 @@ export const register = async (req, res) => {
         })
     }
 
-    const hashedPassword = null;
-    try { //how will i unhash this at the time of login? Answer: by using bcrypt.compare()
-        hashedPassword = await bcrypt.hash(password, 10); //hash the password with a salt round of 10
+    let hashedPassword = null;
+    try {
+        hashedPassword = await bcrypt.hash(password, 10);
     }
     catch (error) { 
         return res.status(500).json({
