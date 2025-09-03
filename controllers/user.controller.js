@@ -34,7 +34,7 @@ export const register = async (req, res) => {
 
     try {
         const newUser = new User({ username, email, password: hashedPassword });  //creates a new instance of the User model
-        await newUser.save();  //What is difference between save() and create()? Answer: save() is a method that you call on an instance of a model to save it to the database, while create() is a method that you call on the model itself to create and save a new instance in one step.
+        await newUser.save();
         res.status(201).json({ 
             message: "User registered successfully", 
             user: newUser,
